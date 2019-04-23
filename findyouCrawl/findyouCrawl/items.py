@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # -*- coding: utf-8 -*-
 
 # Define here the models for your scraped items
@@ -25,7 +25,7 @@ class FindyoucrawlItem(scrapy.Item):
     #옥션 제품 상세보기
     auction_url = scrapy.Field()
     pass
-=======
+
 
 # -*- coding: utf-8 -*-
 
@@ -42,4 +42,3 @@ class FindyoucrawlItem(scrapy.Item):
     # name = scrapy.Field()
     pass
 
->>>>>>> d2bc7683f05b586b608dc0d1fd5379b7cc5edb7a

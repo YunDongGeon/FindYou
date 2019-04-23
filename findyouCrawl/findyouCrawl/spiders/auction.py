@@ -42,6 +42,5 @@ class AuctionCrawlSpider(CrawlSpider):
         # 옥션 제품 이미지
         i['auction_img'] = response.xpath('///*[@id="content"]/div[2]/div[1]/div/div/ul/li[1]/a/img/@src').extract()
         # 옥션 제품 상세보기
-        i['auction_url'] = response.xpath('').extract()
+        i['auction_url'] = response.request.url #flask를 이용한 현재 url정보 가져오기
         return i
-
