@@ -16,8 +16,7 @@ class FindyoucrawlItem(scrapy.Item):
     #옥션 제품명
     auction_title = scrapy.Field()
     #옥션 제품가격
-    auction_price1 = scrapy.Field()
-    auction_price2 = scrapy.Field()
+    auction_price = scrapy.Field()
     #옥션 배송비 유뮤
     auction_del = scrapy.Field()
     #옥션 제품 이미지

@@ -1,4 +1,5 @@
 import scrapy
+import flask
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
@@ -17,6 +18,7 @@ class AuctionCrawlSpider(CrawlSpider):
                 # 1-4. 민소매/나시티셔츠
                 'http://browse.auction.co.kr/list?category=13290500&s=8'
                 ]
+
     rules = (
         Rule(LinkExtractor(allow=r'http://itempage3.auction.co.kr/DetailView.aspx\?itemno=.*'),
              callback='parse_item', follow=True),
@@ -34,11 +36,9 @@ class AuctionCrawlSpider(CrawlSpider):
         # 옥션 제품명
         i['auction_title'] = response.xpath('//*[@id="frmMain"]/h1/span/text()').extract()
         # 옥션 제품가격
-        i['auction_price1'] = response.xpath('//*[@id="frmMain"]/div[3]/div[1]/div/span/strong/text()').extract()
-        i['auction_price2'] = response.xpath('//*[@id="frmMain"]/div[2]/div[1]/div/span/strong/text()').extract()
-        # # 옥션 배송비 유뮤
+        i['auction_price'] = response.xpath('//*[@class="price_real"]/text()').extract()
+        # 옥션 배송비 유뮤
         i['auction_del'] = response.xpath('//*[@id="ucShippingInfo_btnShippingInfoTitleText"]/em/text()').extract()
-        # i['auction_del'] = response.xpath('//*[@id="ucShippingInfo_btnShippingInfoTitleText"]//text()').extract()
         # 옥션 제품 이미지
         i['auction_img'] = response.xpath('///*[@id="content"]/div[2]/div[1]/div/div/ul/li[1]/a/img/@src').extract()
         # 옥션 제품 상세보기
