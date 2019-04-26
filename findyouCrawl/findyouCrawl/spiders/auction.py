@@ -9,13 +9,9 @@ class AuctionCrawlSpider(CrawlSpider):
 
     start_urls=[
                 # 1.반팔티셔츠
-                # 1-1. 라운드넥티셔츠
                 'http://browse.auction.co.kr/list?category=13290300&s=8',
-                # 1-2. 카라넥티셔츠
                 'http://browse.auction.co.kr/list?category=13290200&s=8',
-                # 1-3. 브이넥티셔츠
                 'http://browse.auction.co.kr/list?category=13290100&s=8',
-                # 1-4. 민소매/나시티셔츠
                 'http://browse.auction.co.kr/list?category=13290500&s=8'
                 ]
 
