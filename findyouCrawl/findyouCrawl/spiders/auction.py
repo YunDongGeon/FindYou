@@ -7,19 +7,15 @@ class AuctionCrawlSpider(CrawlSpider):
     allow_domains = ['auction.co.kr']
 
     start_urls=[
-                #1. 반팔티셔츠
-                #1-1 라운드넥티셔츠
+                # 1.반팔티셔츠
+                # 1-1. 라운드넥티셔츠
                 'http://browse.auction.co.kr/list?category=13290300&s=8',
-                # 1-2 카라넥티셔츠
+                # 1-2. 카라넥티셔츠
                 'http://browse.auction.co.kr/list?category=13290200&s=8',
-                # 1-3 브이넥티셔츠
+                # 1-3. 브이넥티셔츠
                 'http://browse.auction.co.kr/list?category=13290100&s=8',
-                # 1-4 민소매/나시티셔츠
-                'http://browse.auction.co.kr/list?category=13290500&s=8',
-                # 2.긴팔티셔츠
-                'http://browse.auction.co.kr/list?category=13050100&s=8'
-
-
+                # 1-4. 민소매/나시티셔츠
+                'http://browse.auction.co.kr/list?category=13290500&s=8'
                 ]
     rules = (
         Rule(LinkExtractor(allow=r'http://itempage3.auction.co.kr/DetailView.aspx\?itemno=.*'),
@@ -29,8 +25,6 @@ class AuctionCrawlSpider(CrawlSpider):
 
     def parse_url(self, response):
         url = {}
-        # 옥션 제품 상세보기
-        url['auction_url'] = response.xpath('//*[@id="section--inner_content_body_container"]/div[2]/div[1]/div/div/div[2]/div[1]/div[1]/span/a/@href').extract()
         return url
 
     def parse_item(self, response):
@@ -40,10 +34,13 @@ class AuctionCrawlSpider(CrawlSpider):
         # 옥션 제품명
         i['auction_title'] = response.xpath('//*[@id="frmMain"]/h1/span/text()').extract()
         # 옥션 제품가격
-        i['auction_price'] = response.xpath('//*[@id="frmMain"]/div[3]/div[1]/div/span/strong/text()').extract()
-        # 옥션 배송비 유뮤
+        i['auction_price1'] = response.xpath('//*[@id="frmMain"]/div[3]/div[1]/div/span/strong/text()').extract()
+        i['auction_price2'] = response.xpath('//*[@id="frmMain"]/div[2]/div[1]/div/span/strong/text()').extract()
+        # # 옥션 배송비 유뮤
         i['auction_del'] = response.xpath('//*[@id="ucShippingInfo_btnShippingInfoTitleText"]/em/text()').extract()
+        # i['auction_del'] = response.xpath('//*[@id="ucShippingInfo_btnShippingInfoTitleText"]//text()').extract()
         # 옥션 제품 이미지
-        i['auction_img'] = response.xpath('//*[@id="content"]/div[2]/div[1]/div/div/ul/li[1]/a/img/@src').extract()
-
+        i['auction_img'] = response.xpath('///*[@id="content"]/div[2]/div[1]/div/div/ul/li[1]/a/img/@src').extract()
+        # 옥션 제품 상세보기
+        i['auction_url'] = response.request.url #flask를 이용한 현재 url정보 가져오기
         return i

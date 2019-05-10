@@ -10,6 +10,7 @@ def serve_page(path):
     return send_from_directory('static', path)
 
 @app.route("/")
+
 def hello():
     return "Hello World!"
 
