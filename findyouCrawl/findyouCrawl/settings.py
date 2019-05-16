@@ -14,7 +14,9 @@ BOT_NAME = 'findyouCrawl'
 SPIDER_MODULES = ['findyouCrawl.spiders']
 NEWSPIDER_MODULE = 'findyouCrawl.spiders'
 
+
 DOWNLOAD_DELAY = 0.25    # 250 ms of delay
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'findyouCrawl (+http://www.yourdomain.com)'
@@ -90,4 +92,5 @@ MEDIA_ALLOW_REDIRECTS = True
 #HTTPCACHE_EXPIRATION_SECS = 0
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
+
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
