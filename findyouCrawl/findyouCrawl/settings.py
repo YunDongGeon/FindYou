@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 # Scrapy settings for findyouCrawl project
@@ -16,11 +15,16 @@ SPIDER_MODULES = ['findyouCrawl.spiders']
 NEWSPIDER_MODULE = 'findyouCrawl.spiders'
 
 
+DOWNLOAD_DELAY = 0.25    # 250 ms of delay
+
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'findyouCrawl (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+
+ROBOTSTXT_OBEY = False
+MEDIA_ALLOW_REDIRECTS = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -88,5 +92,5 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_EXPIRATION_SECS = 0
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
-#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
