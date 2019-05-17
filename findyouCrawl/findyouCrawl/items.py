@@ -46,6 +46,5 @@ class FindyoucrawlItem(scrapy.Item):
     # 11번가 제품 이미지 url
     elevenSt_img = scrapy.Field()
     # 11번가 제품 상세보기 url
-    elevenSt_url = scrapy.Field()	
+    elevenSt_url = scrapy.Field()
     pass
-
