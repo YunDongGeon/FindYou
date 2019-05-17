@@ -7,7 +7,6 @@
 
 import scrapy
 
-
 class FindyoucrawlItem(scrapy.Item):
     # define the fields for your item here like:
     #옥션 제품 카테고리
@@ -49,3 +48,4 @@ class FindyoucrawlItem(scrapy.Item):
     # 11번가 제품 상세보기 url
     elevenSt_url = scrapy.Field()	
     pass
+
