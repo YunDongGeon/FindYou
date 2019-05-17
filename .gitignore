@@ -293,4 +293,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+<<<<<<< HEAD
+# End of https://www.gitignore.io/api/flask,python,windows,pycharm
+
+
+/.idea/**
+=======
 # End of https://www.gitignore.io/api/flask,python,windows,pychar
+>>>>>>> fb7f96aa6d3204d06b41b65d21fb561fdbc2c483

@@ -1,5 +1,6 @@
 import scrapy
 from scrapy.linkextractors import LinkExtractor
+
 from scrapy.spiders import CrawlSpider, Rule, BaseSpider
 # from scrapy.selector import HtmlXPathSelector
 # from scrapy.item import Item, Field
@@ -37,5 +38,4 @@ class interparkCrawlSpider(CrawlSpider):
         i['interpark_del'] = response.xpath('//*[@class="prod-shipping-fee-message"]/span/text()').extract()
         i['interpark_img'] = response.xpath('//*[@id="repImageContainer"]/img/@src').extract()
         # i['interpark_url'] = response.xpath('').extract()
-
         return i
