@@ -13,14 +13,12 @@ BOT_NAME = 'findyouCrawl'
 
 SPIDER_MODULES = ['findyouCrawl.spiders']
 NEWSPIDER_MODULE = 'findyouCrawl.spiders'
-
 DOWNLOAD_DELAY = 0.25    # 250 ms of delay
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'findyouCrawl (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-
 ROBOTSTXT_OBEY = False
 MEDIA_ALLOW_REDIRECTS = True
 
@@ -67,9 +65,9 @@ MEDIA_ALLOW_REDIRECTS = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'findyouCrawl.pipelines.FindyoucrawlPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'findyouCrawl.pipelines.FindyoucrawlPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
